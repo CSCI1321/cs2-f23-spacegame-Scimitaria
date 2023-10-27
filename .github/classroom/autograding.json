@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Compilation Test",
+      "setup": "",
+      "run": "./gradlew build",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
