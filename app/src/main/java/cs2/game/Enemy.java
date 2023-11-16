@@ -6,16 +6,22 @@ import javafx.scene.image.Image;
 public class Enemy extends Sprite {
   private Image bulletPicture;
 
-  /*
+  
   //This constructor should initialize all fields
   //**Remember that some fields are inherited from Sprite
-  public Enemy(Image avatar, Image bulletPic, Vec2 p) { }
-  */
+  public Enemy(Image avatar, Image bulletPic, Vec2 p) { 
+  super(avatar, p); 
+  bulletPicture = bulletPic; 
+  }
+  
 
-  /*
+  
   // This method should create a new Bullet object and return it
   // The Bullet should be initialized with the bulletPicture, the
   // current position of the enemy, and a velocity going down the screen
-  public Bullet shoot() { }
-  */
+  public Bullet shoot() { 
+  Bullet b = new Bullet(bulletPicture, new Vec2(this.pos.getX(),this.pos.getY()), new Vec2(0,20));
+  return b;
+  }
+  
 }
