@@ -32,7 +32,13 @@ public abstract class Sprite {
   g.drawImage(img,this.pos.getX(),this.pos.getY());
   }
   
-
+  public boolean intersect(Sprite s){
+  return !(
+  (this.pos.getX()>(s.pos.getX()+s.img.getWidth()))||
+  (this.pos.getY()>(s.pos.getY()+s.img.getHeight()))||
+  (this.pos.getX()+this.img.getWidth()<(s.pos.getX()))||
+  (this.pos.getY()+this.img.getHeight()<(s.pos.getY())));
+  }
   
   // This method should change the location/position of the sprite
   // by the amount specified in the parameter delta

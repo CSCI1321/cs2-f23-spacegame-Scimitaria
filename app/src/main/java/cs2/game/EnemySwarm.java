@@ -8,7 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class EnemySwarm {
-  private ArrayList<Enemy> swarm;
+  public ArrayList<Enemy> swarm;
 
   // This constructor should create a swarm of enemies in a grid
   // The grid should be nRows x nCols in size.
@@ -16,13 +16,13 @@ public class EnemySwarm {
   // that are added to the ArrayList. The enemies should be spaced out
   // in a grid pattern across the top of the screen.
   public Image bp;
-
+   
   public EnemySwarm(int nRows, int nCols, Image enemPic, Image bullPic) {
-    swarm = new ArrayList<Enemy>();
+    swarm = new ArrayList<Enemy>(); 
     bp = bullPic;
     for (int x = 0; x < nRows; x++) {
       for (int y = 0; y < nCols; y++) {
-        swarm.add(new Enemy(enemPic, bullPic, new Vec2(0 + 175 * y, 0 + 100 * x)));
+        swarm.add(new Enemy(enemPic, bullPic, new Vec2(25 + 175 * y, 25 + 100 * x)));
       }
     }
   }
@@ -32,6 +32,16 @@ public class EnemySwarm {
     for (int z = 0; z < swarm.size(); z++) {
       swarm.get(z).display(g);
     }
+  }
+
+  public boolean intersect(Sprite s){
+    for(int i=0;i<this.swarm.size();i++){
+    if(this.swarm.get(i).intersect(s)){
+    this.swarm.remove(i);
+    return true;
+    }
+    }
+    return false;
   }
 
   // This method should choose one enemy at random from the swarm,

@@ -20,7 +20,7 @@ public class Player extends Sprite {
   // The Bullet should be initialized with the bulletPicture, the
   // current position of the player, and a velocity going up the screen
   public Bullet shoot() { 
-  Bullet b = new Bullet(bulletPicture, new Vec2(this.pos.getX(),this.pos.getY()), new Vec2(0,-20));
+  Bullet b = new Bullet(bulletPicture, new Vec2(this.pos.getX(),this.pos.getY()), new Vec2(0,-10));
   return b;
   }
   
@@ -29,6 +29,12 @@ public class Player extends Sprite {
   // This method should move the player left by some amount
   public void moveLeft() { 
   this.move(new Vec2(-5,0));
+  }
+  public void moveUp() { 
+  this.move(new Vec2(0,-5));
+  }
+  public void moveDown() { 
+  this.move(new Vec2(0,5));
   }
   
 
